@@ -12,7 +12,7 @@ node('JDK_17') {
             allowEmptyArchive: false
     }
     stage('show the test results') {
-        junit testresults: '**/surefire-reports/TEST-*.xml',
+        junit testResults: '**/surefire-reports/TEST-*.xml',
             allowEmptyResults: true
     }
 }
