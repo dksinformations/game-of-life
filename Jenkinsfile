@@ -1,6 +1,6 @@
 node('JDK_17') {
     stage('version control') {
-        git url: 'https://github.com/khajadevopsmarch23/game-of-life.git',
+        git url: 'https://github.com/dksinformations/game-of-life.git',
             branch: 'scripted'
     }
 }
