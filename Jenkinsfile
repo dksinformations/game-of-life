@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'JDK_17' }
     stages {
-        stage('VCS') {
+        stage('vcs') {
             steps {
                 git url: 'https://github.com/dksinformations/game-of-life.git'
                     branch: 'declarative'
@@ -19,7 +19,7 @@ pipeline {
             steps {
                 archiveArtifacts artifacts: '**/target/gameoflife.war'
                                  onlyIfSuccessful: true
-                junit testresults: '**/surefire-reports/TEST-*.xml'
+                junit testResults: '**/surefire-reports/TEST-*.xml'
             }
         }
     }
