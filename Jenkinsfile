@@ -1,5 +1,5 @@
-pipeline{
-    agent {'JDK_17'}
+pipeline {
+    agent { label 'JDK_17' }
     stages {
         stage('VCS') {
             steps {
@@ -15,11 +15,12 @@ pipeline{
                 sh 'mvn package'
             }
         }
-        stage('post build')
+        stage('post build') {
             steps {
                 archiveArtifacts artifacts: '**/target/gameoflife.war'
                                  onlyIfSuccessful: true
                 junit testresults: '**/surefire-reports/TEST-*.xml'
             }
+        }
     }
 }
