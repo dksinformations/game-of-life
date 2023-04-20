@@ -1,4 +1,3 @@
-
 pipeline {
     agent { label 'JDK_17' }
     stages {
