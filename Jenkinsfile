@@ -3,15 +3,12 @@ pipeline {
     stages {
         stage('vcs') {
             steps {
-                git url: 'https://github.com/dksinformations/game-of-life.git'
-                     branch: 'declarative'
+                git url: 'https://github.com/khajadevopsmarch23/game-of-life.git',
+                    branch: 'declarative'
             }
         }
         stage('package') {
             steps {
-                environment {
-                    PATH='/usr/lib/jvm/java-1.8.0-openjdk-amd64'
-                }
                 sh 'mvn package'
             }
         }
