@@ -8,13 +8,13 @@ pipeline {
             }
         }
         stage('package') {
-            steps{
+            steps {
                 environment {
                     PATH= 'url/lib/jvm/java-1.8.0-openjdk-amd64'
                 }
                 sh 'mvn package'
         }
-        stage ('post build') {
+        stage('post build') {
             steps {
                 archiveArtifacts artifacts: '**/target/gameoflife.war',
                                  onlyIfSuccessful: true
