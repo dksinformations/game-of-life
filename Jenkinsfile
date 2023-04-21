@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'JDK_17' }
+    agent { label 'JDK_17'}
     stages {
         stage('vcs') {
             steps {
@@ -8,12 +8,13 @@ pipeline {
             }
         }
         stage('package') {
-            environment {
-                PATH= '/usr/lib/jvm/java-1.8.0-openjdk-amd64',
+            steps{
+                environment {
+                    PATH= 'url/lib/jvm/java-1.8.0-openjdk-amd64'
+                }
                 sh 'mvn package'
-            }
         }
-        stage('post build') {
+        stage ('post build') {
             steps {
                 archiveArtifacts artifacts: '**/target/gameoflife.war',
                                  onlyIfSuccessful: true
